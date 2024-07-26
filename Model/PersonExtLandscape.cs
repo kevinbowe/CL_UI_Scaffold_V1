@@ -22,7 +22,7 @@ public static class PersonExtLandscape
  		{
 			propertyValue = ObjectToDateOnlyFmt(propertyValue);
  		}
-		var str = $"\u001b[32m{propMatch}:\u001b[0m {propertyValue}";
+		var str =    $"{Menus.GREEN} {propMatch}: {Menus.WHITE} {propertyValue}";
 
 		var padder = 20;
 		//
@@ -55,12 +55,16 @@ public static class PersonExtLandscape
 		}
 		return strBuilder;
 	}
+	
+	
 	public static StringBuilder OutputPropertiesList(
 		this Person person, string[] OutputProperties, string orientation) 
 	{
 		var strBuilder = new StringBuilder();
+		
 		//		Get all of the property names in the Person Class.
 		IList<PropertyInfo> personPropInfoList= new List<PropertyInfo>(person.GetType().GetProperties());
+		
 		//		Search the OutputProperties looking for a matching property
 		foreach(PropertyInfo personPropInfo in personPropInfoList)
 		{

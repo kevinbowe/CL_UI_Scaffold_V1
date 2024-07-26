@@ -8,11 +8,11 @@ public static class PersonExt
 	{
 		strBuilder.Insert(0," ", spaces);	
 	}
-	public static string PadLeft(this string str, int spaces)
+
+	public static string PadLeftLineFeed(this string str, int spaces)
 	{
-		for(int space = 1; space<=spaces; ++space)
-			str = " " + str;
-		return str;
+		for(int i = 1; i <= spaces; i++) str = ' ' + str; 
+		return str + "\n";
 	}
 
 	public static string SetFriendlyName(PropertyInfo personPropInfo)
