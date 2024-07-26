@@ -33,7 +33,7 @@ public static class GetPersonById
 		//				ReadAsStringAsync(~) will read the stream and generate a serialized response string.
 		var serializedResponse = await response.Content.ReadAsStringAsync();
 
-		//			This executes if personId is 0 or >3 -- These records do not exist.
+		//			This executes if personId is 0 -- These records do not exist.
 		if (serializedResponse.Length <= 0 ) 
 			return new PersonResponse()
 			{ 

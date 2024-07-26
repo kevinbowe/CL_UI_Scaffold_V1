@@ -1,6 +1,3 @@
-#define landscapeFlag
-#define propFilter
-
 using CL_UI_Scaffold_V1;
 using System.Text;
 
@@ -26,7 +23,7 @@ public class ProcessWorkers
 					strBuilder = person.OutputProperties(propertyList); // Landscape by default
 					Console.WriteLine($"{strBuilder}");
 				}
-				System.Console.WriteLine();
+				Console.WriteLine();
 				break;
 
 			case 2: // Get PersonById
@@ -38,44 +35,7 @@ public class ProcessWorkers
 				Console.WriteLine($"{strBuilder}");
 				break;
 
-			case 3: // Delete PersonById
-				personResponse = await DeletePersonById.DeletePersonByIdTWOAsync(client, personId);
-				//
-				Console.WriteLine();
-				//
-				if (personResponse.Person != null)
-				{
-					Console.WriteLine($"{PersonExt.PadLeft("Record deleted",6)}");
-					Console.WriteLine();
-					
-					propertyList = new[] { "Id", "FirstName", "LastName", "SSN", "InsertDte_sys", "doB_sys", "WorkStartsAt_sys" };
-					strBuilder = personResponse.Person.OutputProperties(propertyList, "portrait");
-					Console.WriteLine($"{strBuilder}");
-				}
-				else 
-				{
-					Console.WriteLine($"{PersonExt.PadLeft($"Not Found: ID: [ {personId} ]",6)}");
-					System.Console.WriteLine();
-				}
-				break;
-			case 4: // Delete Person (Object) -- Disabled
-					  // Console.WriteLine(await DeletePerson.DeletePersonAsync(client));      
-				break;
-			case 5: // Insert Person
-				Console.WriteLine();
-				personResponse = await InsertPerson.InsertPersonAsync(client, inputPerson);
-				//
-				if (personResponse.Person is not null)
-				{
-					Console.WriteLine($"{PersonExt.PadLeft("Record inserted",6)}");
-					Console.WriteLine();
-					//
-					propertyList = new[] { "Id", "FirstName", "LastName", "SSN", "InsertDte_sys", "doB_sys", "WorkStartsAt_sys" };
-					strBuilder = personResponse.Person.OutputProperties(propertyList, "portrait");
-					Console.WriteLine(strBuilder);
-				}
-				break;
-			case 6: // Update Person
+			case 3: // Update Person
 				personResponse = await GetPersonById.GetPersonByIdAsync(client, personId);
 
 				if(personResponse.Person == null) break;
@@ -96,8 +56,6 @@ public class ProcessWorkers
 					strBuilder = personResponse.Person.OutputProperties(propertyList, "portrait");
 					Console.WriteLine($"{strBuilder}");
 				}
-				break;
-			case 7: // <return> to continue
 				break;
 		}
 		return new object();

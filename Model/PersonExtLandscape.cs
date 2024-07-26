@@ -20,7 +20,7 @@ public static class PersonExtLandscape
  		//		
  		if (personPropInfo?.PropertyType.Name == "DateOnly")
  		{
-			propertyValue = ObjectToDataOnlyFmt(propertyValue);
+			propertyValue = ObjectToDateOnlyFmt(propertyValue);
  		}
 		var str = $"\u001b[32m{propMatch}:\u001b[0m {propertyValue}";
 

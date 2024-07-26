@@ -22,7 +22,7 @@ public static class PersonExtPortrait
  		//		
  		if (personPropInfo?.PropertyType.Name == "DateOnly")
  		{
-			propertyValue = ObjectToDataOnlyFmt(propertyValue);
+			propertyValue = ObjectToDateOnlyFmt(propertyValue);
  		}
 		var str = $"{Menus.GREEN} {propMatch}: {Menus.WHITE} {propertyValue}";
 

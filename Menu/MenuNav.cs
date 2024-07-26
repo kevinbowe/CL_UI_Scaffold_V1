@@ -81,15 +81,18 @@ public static partial class Menus
 		--option;	// Get next option
 		if (disabledList is not null)
 		{
-			if (disabledList.Contains(option)) 
+			foreach(int disabledOption in disabledList)
 			{
-				//		Set the current option to the next option above
-				--option;
-				//		Do a limit check on the option
-				if (option <= 1) 
+				if (disabledList.Contains(option)) 
 				{
-					//		If we get here, the option is invalid
-					option = menuOptionCnt;//	Set option to Bottom = menuOptionCnt
+					//		Set the current option to the next option above
+					--option;
+					//		Do a limit check on the option
+					if (option <= 1) 
+					{
+						//		If we get here, the option is invalid
+						option = menuOptionCnt;//	Set option to Bottom = menuOptionCnt
+					}
 				}
 			}
 		}

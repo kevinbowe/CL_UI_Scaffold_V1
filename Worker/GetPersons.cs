@@ -8,8 +8,8 @@ using System.Text.Json;
 public static class GetPersons
 {
 	//////////////////////////////////////////////////////////////////////////////
-	///		'async' declairs the function 'GetPersonsAsync' to be ASYNC
-	///		Task<List<Person>> declares an asyncronous return type.
+	///		'async' declare the function 'GetPersonsAsync' to be ASYNC
+	///		Task<List<Person>> declares an asynchronous return type.
 	///		This is based on the Deserialize<List<Person>>(~)
 	public static async Task<PersonListResponse> GetPersonsAsync(HttpClient client)
 	{

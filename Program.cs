@@ -1,9 +1,7 @@
-﻿// namespace CL_UI_Scaffold_V1;
-using CL_UI_Scaffold_V1;
+﻿using CL_UI_Scaffold_V1;
 using System.Text;
 
 using static CL_UI_Scaffold_V1.Menus;
-// using static Menus;
 
 ////////////////////////////////////////////////////////////////////////////////
 ///	App Header
@@ -26,7 +24,7 @@ while(true)
 	int UNDER_MENU = Console.GetCursorPosition().Top;
 
 	/////////////////////////////////////////////////////////////////////////////
-	///		Clear the current results.
+	///		Clear OLD results.
 	///		
 
 	//			Calculate the number of lines that should be cleared.
@@ -36,7 +34,7 @@ while(true)
 	//			Handle the Q  Quit main menu option.
 	if (menuOption.Label.Contains('Q')) 
 	{ 
-		System.Console.WriteLine();
+		Console.WriteLine();
 		return;
 	}
 
@@ -55,18 +53,11 @@ while(true)
 	//		Display Submenu when appropriate
 	switch (menuOption.Option) 
 	{
-		// case 1:	break; //	Display ALL persons
+		case 1:	break; //	Display ALL persons
 		case 2:	//	Get Person by Id
 			personId = ReadPersonIdUI("Enter the Person Id to display:  ");
 			break;
-		case 3:	//	Delete Person by Id
-			personId = ReadPersonIdUI("Enter the Person Id to delete:  ");
-			break;
-		// case 4:	break; //	Delete person with Person Object -- Create person object
-		case 5:	//	Insert Person -- Create person object
-			inputPerson = InsertPersonUI();
-			break;
-		case 6:	//	Update person -- create person object
+		case 3:	//	Update person -- create person object
 			personId = ReadPersonIdUI("Enter the Person Id to update:  ");
 			break;
 	}
@@ -84,7 +75,7 @@ while(true)
 	var continueQuitMenuOption = ContinueQuitMenu();
 	if(continueQuitMenuOption.Label.Contains('Q')) 
 	{ 
-		System.Console.WriteLine(); 
+		Console.WriteLine(); 
 		return; 
 	}
 

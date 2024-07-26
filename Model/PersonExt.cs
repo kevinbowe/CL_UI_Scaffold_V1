@@ -1,7 +1,6 @@
 namespace CL_UI_Scaffold_V1;
 using System.Reflection;
 using System.Text;
-// using static PersonExtPortrait;
 
 public static class PersonExt
 {
