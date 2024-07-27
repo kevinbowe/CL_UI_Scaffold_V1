@@ -9,11 +9,11 @@ public static class PersonExt
 		strBuilder.Insert(0," ", spaces);	
 	}
 
-	public static string PadLeftLineFeed(this string str, int spaces)
-	{
-		for(int i = 1; i <= spaces; i++) str = ' ' + str; 
-		return str + "\n";
-	}
+	// public static string PadLeftLineFeed(this string str, int spaces)
+	// {
+	// 	for(int i = 1; i <= spaces; i++) str = ' ' + str; 
+	// 	return str + "\n";
+	// }
 
 	public static string SetFriendlyName(PropertyInfo personPropInfo)
 	{
@@ -48,34 +48,29 @@ public static class PersonExt
 		//			Is there a Property FilterList ?
 		if (personPropertyFilterList == null) 
 		{
-			//		If we get here; There is no Property FilterList
-			if (orientation == "landscape")
-			{
+			IList<PropertyInfo> personPropInfoList= new List<PropertyInfo>(person.GetType().GetProperties());
+
 				// Grab all the properties in the Persons class.
-				IList<PropertyInfo> personPropInfoList= new List<PropertyInfo>(person.GetType().GetProperties());
 				foreach(PropertyInfo personPropInfo in personPropInfoList) 
 				{
-					strBuilder = person.OutputPersonFriendlyName(personPropInfo, strBuilder, orientation);
+					if (orientation == "landscape")
+					{
+						strBuilder = person.OutputPersonFriendlyNamePortrait(personPropInfo, strBuilder, orientation);
+						// strBuilder = person.OutputPersonFriendlyName(personPropInfo, strBuilder, orientation);
+					}
+					else // orientation == "portrait"
+						strBuilder = person.OutputPersonFriendlyNamePortrait(personPropInfo, strBuilder, orientation);
 				}
-				//		Indent the completed string.
-				strBuilder.PadLeft(5);		
-			}
-			else  // Portrait
-			{
-				// Grab all the properties in the Persons class.
-				IList<PropertyInfo> personPropInfoList= new List<PropertyInfo>(person.GetType().GetProperties());
-				foreach(PropertyInfo personPropInfo in personPropInfoList) 
-				{
-					strBuilder = person.OutputPersonFriendlyNamePortrait(personPropInfo, strBuilder, orientation);			
-				}
-			}
 			return strBuilder;
 		}
-
+		
+		//////////////////////////////////////////////////////////////////////////
 		//		If we get here; There is a Property FilterList
+
 		if (orientation == "landscape")
 		{
-			strBuilder = person.OutputPropertiesList(personPropertyFilterList, orientation);
+			strBuilder = person.OutputPropertiesListPortrait(personPropertyFilterList, orientation);
+			// strBuilder = person.OutputPropertiesList(personPropertyFilterList, orientation);
 			//		Indent the completed string.
 			strBuilder.PadLeft(5);	
 			return strBuilder;

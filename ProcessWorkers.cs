@@ -20,7 +20,7 @@ public class ProcessWorkers
 				foreach (Person? person in personListResponse.PersonList)
 				{
 					propertyList = new[] { "Id", "FirstName", "LastName", "SSN", "doB_sys", "WorkStartsAt_sys" };
-					strBuilder = person.OutputProperties(propertyList); // Landscape by default
+					strBuilder = person.OutputProperties(propertyList, "landscape"); // Landscape by default
 					Console.WriteLine($"{strBuilder}");
 				}
 				Console.WriteLine();
