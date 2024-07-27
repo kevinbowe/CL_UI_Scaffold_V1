@@ -109,8 +109,8 @@ void LoadHeadUI()
 	Console.ForegroundColor = ConsoleColor.Cyan;
 
 	Console.WriteLine("Console Menu Experiment.");
-	// Console.WriteLine("API Lifetime Experiment.");
-	Console.WriteLine("This App requires dotnet_API/ API_Scaffold_V1 to be running.\n");
+	Console.WriteLine("This App requires $ dotnet run EF_API_V4 and $ dotnet run CL_UI_Scaffold_V1 to be running.");
+	Console.WriteLine("The SqlDockerMac container must also be running.\n");
 
 	Console.ResetColor();
 
