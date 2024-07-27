@@ -108,7 +108,8 @@ void LoadHeadUI()
 	Console.CursorVisible = false;
 	Console.ForegroundColor = ConsoleColor.Cyan;
 
-	Console.WriteLine("API Lifetime Experiment.");
+	Console.WriteLine("Console Menu Experiment.");
+	// Console.WriteLine("API Lifetime Experiment.");
 	Console.WriteLine("This App requires dotnet_API/ API_Scaffold_V1 to be running.\n");
 
 	Console.ResetColor();
