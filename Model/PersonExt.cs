@@ -29,7 +29,7 @@ public static class PersonExt
 			{
 				string? propMatch = personPropertyFilterList.Where(e => personPropInfo.Name == e).FirstOrDefault();
 				if (propMatch == null) continue;
-				strBuilder = OutputPersonFriendlyName(person, personPropInfo, strBuilder, orientation);
+				strBuilder = OutputFriendlyName(person, personPropInfo, strBuilder, orientation);
 			}
 			//		Output the output stringBuilder sting based on the requested orientation: portrait or landscape.
 			return orientation == "landscape" ? SbPadLeft(strBuilder, 5) : strBuilder;
@@ -41,7 +41,7 @@ public static class PersonExt
 			// Grab all the properties in the Persons class.
 			foreach(PropertyInfo personPropInfo in personPropInfoList) 
 			{
-				strBuilder = person.OutputPersonFriendlyName(personPropInfo, strBuilder, orientation);
+				strBuilder = person.OutputFriendlyName(personPropInfo, strBuilder, orientation);
 			}
 		return strBuilder;
 	}
@@ -105,8 +105,7 @@ public static class PersonExt
 		return strBuilder;
 	}
 
-
-	public static StringBuilder OutputPersonFriendlyName( 
+	public static StringBuilder OutputFriendlyName( 
 		this Person person, PropertyInfo personPropInfo, StringBuilder strBuilder, string orientation)
 	{
 		var propMatch = SetFriendlyName(personPropInfo);
