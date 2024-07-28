@@ -81,8 +81,8 @@ public static partial class Menus
 				Menus.ClearCurrentConsoleLine();
 				Console.SetCursorPosition(continueleft,continuetop);
 				//
-				var selectContinueEdit = Helper.ReadLineHidden();
-				//
+				var selectContinueEdit = Console.ReadLine();
+
 				//				Edit
 				if(selectContinueEdit == "e")
 				{
