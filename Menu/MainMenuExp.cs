@@ -1,4 +1,4 @@
-namespace CL_UI_Scaffold_V1;
+using CL_UI_V6_SCFD_V1;
 
 public static partial class Menus
 {
@@ -9,15 +9,18 @@ public static partial class Menus
 		{
 			new MenuOption() { Option = 1, OptionLabel = "1.", Label = "GetPersons" },
 			new MenuOption() { Option = 2, OptionLabel = "2.", Label = "GetPersonById" },
-			new MenuOption() { Option = 3, OptionLabel = "3.", Label = "UpdatePerson" },
-			new MenuOption() { Option = 4, OptionLabel = "", LabelPad = String.Empty, Label = "-------------------" },
-			new MenuOption() { Option = 5, OptionLabel = "Q.", Label = $"{CYAN}Quit" }
+			new MenuOption() { Option = 3, OptionLabel = "3.", Label = "DeletePersonById" },
+			new MenuOption() { Option = 4, OptionLabel = "4.", Label = $"{MAGENTA}DeletePerson {WHITE} - skip" },
+			new MenuOption() { Option = 5, OptionLabel = "5.", Label = "InsertPerson" },
+			new MenuOption() { Option = 6, OptionLabel = "6.", Label = "UpdatePerson" },
+			new MenuOption() { Option = 7, OptionLabel = "", LabelPad = String.Empty, Label = "-------------------" },
+			new MenuOption() { Option = 8, OptionLabel = "Q.", Label = $"{CYAN}Quit" }
 		};
 		return menuOptions;
 	}
 
-	public static List<int>? DisabledList = new List<int>(){ 4 }; 
-	public static List<int>? DisabledNumList = new List<int>() { 4,5,6,7,8,9 };
+	public static List<int>? DisabledList = new List<int>(){ 4, 7}; 
+	public static List<int>? DisabledNumList = new List<int>() { 4,7,8,9 };
 
 	/////////////////////////////////////////////////////////////////////////////
 	public static MenuOption MainMenuExp(List<MenuOption>? MenuOptions = null, List<int>? disabledList = null, List<int>? disabledNumList = null) 

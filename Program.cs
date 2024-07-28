@@ -1,7 +1,7 @@
-﻿using CL_UI_Scaffold_V1;
+﻿
+using CL_UI_V6_SCFD_V1;
 using System.Text;
-
-using static CL_UI_Scaffold_V1.Menus;
+using static Menus;
 
 int BOTTOM_OF_RESULTS = 0;
 
@@ -65,14 +65,22 @@ while(true)
 	//		Display Submenu when appropriate
 	switch (menuOption.Option) 
 	{
-		case 1:	break; //	Display ALL persons
+		// case 1:	break; //	Display ALL persons
 		case 2:	//	Get Person by Id
 			personId = ReadPersonIdUI("Enter the Person Id to display:  ");
 			break;
-		case 3:	//	Update person -- create person object
+		case 3:	//	Delete Person by Id
+			personId = ReadPersonIdUI("Enter the Person Id to delete:  ");
+			break;
+		// case 4:	break; //	Delete person with Person Object -- Create person object
+		case 5:	//	Insert Person -- Create person object
+			inputPerson = InsertPersonUI();
+			break;
+		case 6:	//	Update person -- create person object
 			personId = ReadPersonIdUI("Enter the Person Id to update:  ");
 			break;
 	}
+
 	Console.ResetColor();
 	Console.CursorVisible = false;
 
@@ -109,7 +117,7 @@ void LoadHeadUI()
 	Console.ForegroundColor = ConsoleColor.Cyan;
 
 	Console.WriteLine("Console Menu Experiment.");
-	Console.WriteLine("This App requires $ dotnet run EF_API_V4 and $ dotnet run CL_UI_Scaffold_V1 to be running.");
+	Console.WriteLine("This App requires $ dotnet run EF_API_V4 and $ dotnet run CL_UI_V6_SCFD_V1 to be running.");
 	Console.WriteLine("The SqlDockerMac container must also be running.\n");
 
 	Console.ResetColor();
