@@ -1,4 +1,4 @@
-﻿namespace CL_UI_Scaffold_V1;
+﻿namespace CL_UI_V6_SCFD_V1;
 
 using System;
 using System.Net.Http;
